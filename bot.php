@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
             ];
 
 
- if ($text_ex[0] == "อยากรู้"){ 
+ if ($text_ex[0] == "wiki"){ 
      $ch1 = curl_init(); 
          curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false); 
          curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true); 
@@ -83,7 +83,8 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-        }}
+        }
+    }
     }
 }
 echo "OK";
