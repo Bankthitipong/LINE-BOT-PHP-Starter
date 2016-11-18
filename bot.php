@@ -5,9 +5,9 @@ $access_token = '6t9nTGUM4MSBtfVGcj3hTogXFEr7/Uc1ZrSnJJpuzHsegwHbA0Ja0hbePr2xBz8
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$jsonObj = json_decode($content);
-         $to = $jsonObj->{"result"}[0]->{"content"}->{"from"}; 
-         $text = $jsonObj->{"result"}[0]->{"content"}->{"text"}; 
+
+         $to = $events->{"result"}[0]->{"content"}->{"from"}; 
+         $text = $events->{"result"}[0]->{"content"}->{"text"}; 
          $text_ex = explode(':', $text);
 
 
