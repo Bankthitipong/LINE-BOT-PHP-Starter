@@ -78,13 +78,13 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $response_format_text
+                'text' => $text
             ];
 
              $url = 'https://api.line.me/v2/bot/message/reply';
              $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$messages],
+                'messages' => [$response_format_text],
                
             ];
             $post = json_encode($data);
