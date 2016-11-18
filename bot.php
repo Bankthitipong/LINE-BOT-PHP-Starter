@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             // $messages = [
             //     'type' => 'text',
-            //     'text' => $text
+            //     'text' => $result_text
             // ];
             
 // $to = $events->{"result"}[0]->{"content"}->{"from"}; //หาผู้ส่ง 
@@ -69,7 +69,7 @@ $text_ex = explode(':', $text);
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => $result_text,
+                'messages' => $messages,
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
