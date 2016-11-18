@@ -5,8 +5,7 @@ $access_token = '6t9nTGUM4MSBtfVGcj3hTogXFEr7/Uc1ZrSnJJpuzHsegwHbA0Ja0hbePr2xBz8
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-
-$jsonObj = json_decode($json_string);/
+$jsonObj = json_decode($content);
          $to = $jsonObj->{"result"}[0]->{"content"}->{"from"}; 
          $text = $jsonObj->{"result"}[0]->{"content"}->{"text"}; 
          $text_ex = explode(':', $text);
@@ -46,6 +45,8 @@ if (!is_null($events['events'])) {
             foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
                 $result_text = 'ไม่พบข้อมูล'; } 
+                $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; }
+
             // Build message to reply back
             $messages = [
                 'type' => 'text',
