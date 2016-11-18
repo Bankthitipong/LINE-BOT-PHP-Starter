@@ -69,7 +69,7 @@ $text_ex = explode(':', $text);
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$result_text],
+                'messages' => $result_text,
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
