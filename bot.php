@@ -5,7 +5,6 @@ $access_token = '6t9nTGUM4MSBtfVGcj3hTogXFEr7/Uc1ZrSnJJpuzHsegwHbA0Ja0hbePr2xBz8
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-
          $to = $events->{"result"}[0]->{"content"}->{"from"}; //หาผู้ส่ง 
          $text = $events->{"result"}[0]->{"content"}->{"text"}; //หาข้อความที่โพสมา 
          $text_ex = explode(':', $text); //เอาข้อความมาแยก : ได้เป็น Array 
