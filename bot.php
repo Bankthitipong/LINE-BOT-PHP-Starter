@@ -54,7 +54,7 @@ if ($text_ex[0] == "อยากรู้") //ถ้าข้อความคือ "อยากรู้" ให้ทำการดึงข้อมูลจาก Wik
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$result_text],
+                'messages' => [response_format_text],
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
