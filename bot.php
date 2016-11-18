@@ -44,7 +44,7 @@ if ($text_ex[0] == "อยากรู้") //ถ้าข้อความคือ "อยากรู้" ให้ทำการดึงข้อมูลจาก Wik
             curl_setopt($ch1, CURLOPT_URL, 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]); 
             $result1 = curl_exec($ch1); curl_close($ch1); 
             $obj = json_decode($result1, true); 
-            foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
+            foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } 
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
                 $result_text = 'ไม่พบข้อมูล'; } 
                 $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text];
@@ -54,7 +54,7 @@ if ($text_ex[0] == "อยากรู้") //ถ้าข้อความคือ "อยากรู้" ให้ทำการดึงข้อมูลจาก Wik
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => [response_format_text],
+                'messages' => [$result_text],
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -69,7 +69,7 @@ if ($text_ex[0] == "อยากรู้") //ถ้าข้อความคือ "อยากรู้" ให้ทำการดึงข้อมูลจาก Wik
             curl_close($ch);
 
             echo $result . "\r\n";
-        }
+        
         }       
 
     }
