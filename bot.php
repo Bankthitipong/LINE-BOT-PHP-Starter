@@ -71,13 +71,21 @@ if (!is_null($events['events'])) {
                 $result_text = 'ไม่พบข้อมูล'; } 
                 $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text];
 
-           $post_data = ["to"=>[$to],"toChannel"=>"1383378250","eventType"=>"138311608800106203","content"=>$response_format_text]; //ส่งข้อมูลไป
+          $text = $event['message']['text'];
+            // Get replyToken
+            $replyToken = $event['replyToken'];
+
+            // Build message to reply back
+            $messages = [
+                'type' => 'text',
+                'text' => $response_format_text
+            ];
 
              $url = 'https://api.line.me/v2/bot/message/reply';
              $data = [
                 'replyToken' => $replyToken,
-                'content' => [$response_format_text],
-                "to"=>[$to]
+                'messages' => [$messages],
+               
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -92,6 +100,8 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
                  }
+
+
 
 
     }
