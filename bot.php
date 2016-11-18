@@ -20,13 +20,13 @@ if (!is_null($events['events'])) {
             $replyToken = $event['replyToken'];
 
             // Build message to reply back
-            $messages = [
-                'type' => 'text',
-                'text' => $text
-            ];
+            // $messages = [
+            //     'type' => 'text',
+            //     'text' => $text
+            // ];
             
-$to = $events->{"result"}[0]->{"content"}->{"from"}; //หาผู้ส่ง 
-$text = $events->{"result"}[0]->{"content"}->{"text"}; //หาข้อความที่โพสมา 
+// $to = $events->{"result"}[0]->{"content"}->{"from"}; //หาผู้ส่ง 
+// $text = $events->{"result"}[0]->{"content"}->{"text"}; //หาข้อความที่โพสมา 
 $text_ex = explode(':', $text); 
 
  if ($text_ex[0] == "wiki"){ 
