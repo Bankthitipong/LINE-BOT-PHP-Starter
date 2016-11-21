@@ -10,9 +10,7 @@ if (!is_null($events['events'])) {
     // Loop through each event
     foreach ($events['events'] as $event) {
         // Reply only when message sent is in 'text' format
-        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-
-
+        // if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
         $text_ex = explode(':', $text); //เอาข้อความมาแยก : ได้เป็น Array 
          if($text_ex[0] == "อยากรู้"){ //ถ้าข้อความคือ "อยากรู้" ให้ทำการดึงข้อมูลจาก Wikipedia หาจากไทยก่อน 
@@ -67,7 +65,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           } 
+           
         }
     }
 }
