@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
             $obj = json_decode($result1, true); 
             foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
-                $result_text = 'ไม่พบข้อมูล'; } 
+                $result_text = 'ไม่พบข้อมูล'; } }
 
 
             // Get text sent
@@ -50,7 +50,7 @@ if (!is_null($events['events'])) {
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => $messages,
+                'messages' => [$messages],
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -65,7 +65,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           }
+           
         }
     }
 }
