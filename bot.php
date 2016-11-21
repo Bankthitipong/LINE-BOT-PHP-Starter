@@ -32,18 +32,18 @@ if (!is_null($events['events'])) {
             $obj = json_decode($result1, true); 
             foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
-                $result_text = 'ไม่พบข้อมูล'; } }
+                $result_text = 'ไม่พบข้อมูล'; } 
 
 
             // Get text sent
-            $text = $event['message']['result_text'];
+            $result_text = $event['message']['text'];
             // Get replyToken
             $replyToken = $event['replyToken'];
 
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $text
+                'text' => $result_text
             ];
 
             // Make a POST Request to Messaging API to reply to sender
@@ -65,7 +65,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           
+           }
         }
     }
 }
