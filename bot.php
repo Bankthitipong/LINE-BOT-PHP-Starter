@@ -40,9 +40,10 @@ if (!is_null($events['events'])) {
                     }
                 }
 
-                if (empty($result_text)) { 
+                if (empty($result_text)) {
                     $result_text = 'ไม่พบข้อมูล';
 
+                }
             }
 
             // Get replyToken
