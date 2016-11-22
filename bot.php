@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
                     $result_text = 'No data';
 
                 }
-            } else if ($text_ex[0] != "wiki") {
+            } else if ($text != "wiki") {
                $result_text = $text
             }
 
