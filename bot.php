@@ -45,9 +45,9 @@ if (!is_null($events['events'])) {
                     $result_text = 'No data';
 
                 }
-            } else if ($text != "wiki") {
-               $result_text = $text
-            }
+            } //else if ($text != "wiki") {
+              // $result_text = $text
+           // }
 
             // Get replyToken
             $replyToken = $event['replyToken'];
