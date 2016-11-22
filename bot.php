@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
                 $result_text = 'ไม่พบข้อมูล'; }
                  // $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
-
+}
 
                 // Get text sent
             $text = $event['message']['text'];
@@ -66,7 +66,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           }
+           
         }
     }
 }
