@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
         if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
         $text_ex = explode(':', $text); 
-        
+
          if($text_ex[0] == "wiki"){ 
          $ch1 = curl_init(); 
          curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false); 
@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
                 $result_text = 'ไม่พบข้อมูล'; } 
                  // $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
 
-
+}
                 // Get text sent
             // $text = $event['message']['text'];
             // Get replyToken
@@ -67,7 +67,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           }
+           
         }
     }
 }
