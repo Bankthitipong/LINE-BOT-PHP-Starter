@@ -33,11 +33,11 @@ if (!is_null($events['events'])) {
             foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
             if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
                 $result_text = 'ไม่พบข้อมูล'; }
-                 $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
+                 // $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
 
 
             // Get text sent
-             $text = $event['message']['response_format_text'];
+             $text = $event['message']['result_text'];
             // Get replyToken
             $replyToken = $event['replyToken'];
 
