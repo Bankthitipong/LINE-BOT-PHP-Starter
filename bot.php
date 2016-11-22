@@ -36,22 +36,22 @@ if (!is_null($events['events'])) {
                  // $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
 
 
-            // Get text sent
-             $result_text = $event['message']['text'];
+                // Get text sent
+            $text = $event['message']['text'];
             // Get replyToken
             $replyToken = $event['replyToken'];
 
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $result_text
+                'text' => $text
             ];
 
             // Make a POST Request to Messaging API to reply to sender
             $url = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => $result_text,
+                'messages' => [$messages],
             ];
             $post = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
