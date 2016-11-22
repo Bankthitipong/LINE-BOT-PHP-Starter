@@ -11,7 +11,7 @@ if (!is_null($events['events'])) {
     foreach ($events['events'] as $event) {
         // Reply only when message sent is in 'text' format
         if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-
+        $text = $event['message']['text'];
         $text_ex = explode(':', $text); 
 
          if($text_ex[0] == "wiki"){ 
