@@ -11,50 +11,56 @@ if (!is_null($events['events'])) {
     foreach ($events['events'] as $event) {
         // Reply only when message sent is in 'text' format
         if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-        $text = $event['message']['text'];
-        $text_ex = explode(':', $text); 
+            // Get text sent
+            $text    = $event['message']['text'];
+            $text_ex = explode(':', $text);
 
-         if($text_ex[0] == "wiki"){ 
-         $ch1 = curl_init(); 
-         curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false); 
-         curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true); 
-         curl_setopt($ch1, CURLOPT_URL, 'https://th.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]); 
-         $result1 = curl_exec($ch1); 
-         curl_close($ch1); $obj = json_decode($result1, true);
-          foreach($obj['query']['pages'] as $key => $val){
-           $result_text = $val['extract']; } 
+            if ($text_ex[0] == "wiki") {
+                $ch1 = curl_init();
+                curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch1, CURLOPT_URL, 'https://th.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' . $text_ex[1]);
+                $result1 = curl_exec($ch1);
+                curl_close($ch1);
+                $obj = json_decode($result1, true);
+                foreach ($obj['query']['pages'] as $key => $val) {
+                    $result_text = $val['extract'];
+                }
 
-          if(empty($result_text)){
-           $ch1 = curl_init(); 
-            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false); 
-            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true); 
-            curl_setopt($ch1, CURLOPT_URL, 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]); 
-            $result1 = curl_exec($ch1); curl_close($ch1); 
-            $obj = json_decode($result1, true); 
-            foreach($obj['query']['pages'] as $key => $val){ $result_text = $val['extract']; } } 
-            if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป 
-                $result_text = 'ไม่พบข้อมูล'; } 
-                 // $response_format_text = ['contentType'=>1,"toType"=>1,"text"=>$result_text]; 
+                if (empty($result_text)) {
+                    $ch1 = curl_init();
+                    curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch1, CURLOPT_URL, 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' . $text_ex[1]);
+                    $result1 = curl_exec($ch1);
+                    curl_close($ch1);
+                    $obj = json_decode($result1, true);
+                    foreach ($obj['query']['pages'] as $key => $val) {
+                        $result_text = $val['extract'];
+                    }
+                }
 
-}
-                // Get text sent
-            // $text = $event['message']['text'];
+                if (empty($result_text)) { 
+                    $result_text = 'ไม่พบข้อมูล';
+
+            }
+
             // Get replyToken
             $replyToken = $event['replyToken'];
 
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $result_text
+                'text' => $result_text,
             ];
 
             // Make a POST Request to Messaging API to reply to sender
-            $url = 'https://api.line.me/v2/bot/message/reply';
+            $url  = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$messages],
+                'messages'   => [$messages],
             ];
-            $post = json_encode($data);
+            $post    = json_encode($data);
             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
             $ch = curl_init($url);
@@ -67,7 +73,7 @@ if (!is_null($events['events'])) {
             curl_close($ch);
 
             echo $result . "\r\n";
-           
+
         }
     }
 }
