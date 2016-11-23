@@ -84,7 +84,7 @@ if (!is_null($events['events'])) {
 
             if ($text == 'test') {
 
-               $text = [array(
+               $text = array(
                     'type'     => 'template',
                     'altText'  => 'this is an template',
                     'template' => array(
@@ -95,7 +95,7 @@ if (!is_null($events['events'])) {
                             array('type' => 'message', 'label' => 'Cancel', 'text' => 'No thank you')
                         )
                     )
-                );]
+                );
 
             }
 
