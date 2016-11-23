@@ -103,7 +103,6 @@ if (!is_null($events['events'])) {
           }
 
 //           if($text == 'test'){
-
           //     $text =  array(
           //           'type'     => 'template',
           //           'altText'  => 'this is an template',
