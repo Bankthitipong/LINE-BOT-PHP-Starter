@@ -82,32 +82,29 @@ if (!is_null($events['events'])) {
  if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
             // Get text sent
             $text = $event['message']['text'];
+
+//           if($text == 'test'){
+
+          //     $text =  array(
+          //           'type'     => 'template',
+          //           'altText'  => 'this is an template',
+          //           'template' => array(
+          //               'type'              => 'buttons',
+          //               'thumbnailImageUrl' => 'http://example.com/image.jpg',
+          //               'title'             => 'Current Weather…',
+          //               'text'              => '9/29 Weather…',
+          //               'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
+          //                    array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
+
+          //               )],
+
+          //           ),
+          //       )
+          // }
+
+
             // Get replyToken
             $replyToken = $event['replyToken'];
-
-
- //                    if($text == 'test'){
-
- //              $text =  array(
- //                    'type'     => 'template',
- //                    'altText'  => 'this is an template',
- //                    'template' => array(
- //                        'type'              => 'buttons',
- //                        'thumbnailImageUrl' => 'http://example.com/image.jpg',
- //                        'title'             => 'Current Weather…',
- //                        'text'              => '9/29 Weather…',
-
- //                        'actions'           => array (
- //                                                        array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
- //                             array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
-
- //                        )
- //                             );,
-
- //                    ),
- //                );
- //          }
-
 
             // Build message to reply back
             $messages = [
