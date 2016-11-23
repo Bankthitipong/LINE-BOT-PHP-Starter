@@ -19,7 +19,10 @@ if (!is_null($events['events'])) {
                 // Get text sent
                 $text = $event['message']['text'];
 
-              $result =  array(
+                
+                    if($text == 'test'){
+
+              $text =  array(
                     'type'     => 'template',
                     'altText'  => 'this is an template',
                     'template' => array(
@@ -27,13 +30,14 @@ if (!is_null($events['events'])) {
                         'thumbnailImageUrl' => 'http://example.com/image.jpg',
                         'title'             => 'Current Weather…',
                         'text'              => '9/29 Weather…',
-                        'actions'           => [array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
+                        'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
                              array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
 
                         )],
 
                     ),
                 )
+          }
 
 
                 // Get replyToken
@@ -42,7 +46,7 @@ if (!is_null($events['events'])) {
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => $result,
+                    'text' => $text,
                 ];
 
                 // Make a POST Request to Messaging API to reply to sender
