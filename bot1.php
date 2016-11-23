@@ -93,8 +93,8 @@ if (!is_null($events['events'])) {
                         'actions' => array(
                             array('type' => 'message', 'label' => 'OK', 'text' => 'Yes,Please'),
                             array('type' => 'message', 'label' => 'Cancel', 'text' => 'No thank you'),
-                        ),
-                    ),
+                        )
+                    )
                 );
 
             }
