@@ -20,24 +20,24 @@ if (!is_null($events['events'])) {
                 $text = $event['message']['text'];
 
                 
-                    if($text == 'test'){
+          //           if($text == 'test'){
 
-              $text =  array(
-                    'type'     => 'template',
-                    'altText'  => 'this is an template',
-                    'template' => array(
-                        'type'              => 'buttons',
-                        'thumbnailImageUrl' => 'http://example.com/image.jpg',
-                        'title'             => 'Current Weather…',
-                        'text'              => '9/29 Weather…',
-                        'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
-                             array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
+          //     $text =  array(
+          //           'type'     => 'template',
+          //           'altText'  => 'this is an template',
+          //           'template' => array(
+          //               'type'              => 'buttons',
+          //               'thumbnailImageUrl' => 'http://example.com/image.jpg',
+          //               'title'             => 'Current Weather…',
+          //               'text'              => '9/29 Weather…',
+          //               'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
+          //                    array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
 
-                        )],
+          //               )],
 
-                    ),
-                )
-          }
+          //           ),
+          //       )
+          // }
 
 
                 // Get replyToken
