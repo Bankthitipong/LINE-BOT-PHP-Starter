@@ -40,6 +40,7 @@ if (!is_null($events['events'])) {
                    )]
             )
         )';
+
                 $result = json_decode($json);
 
                 // Get replyToken
@@ -48,7 +49,7 @@ if (!is_null($events['events'])) {
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => $json,
+                    'text' => $result,
                 ];
 
                 // Make a POST Request to Messaging API to reply to sender
