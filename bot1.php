@@ -85,7 +85,6 @@ if (!is_null($events['events'])) {
  //            // Get replyToken
  //            $replyToken = $event['replyToken'];
 
-
  //                    if($text == 'test'){
 
  //              $text =  array(
