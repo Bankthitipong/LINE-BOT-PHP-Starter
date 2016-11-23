@@ -15,10 +15,6 @@ if (!is_null($events['events'])) {
             // Get text sent
             $text = $event['message']['text'];
 
-            if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-                // Get text sent
-                $text = $event['message']['text'];
-
                 
           //           if($text == 'test'){
 
