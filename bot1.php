@@ -83,6 +83,25 @@ if (!is_null($events['events'])) {
             // Get text sent
             $text = $event['message']['text'];
 
+             if($text == 'test'){
+
+            array(
+                    'type'     => 'template',
+                    'altText'  => 'this is an template',
+                    'template' => array(
+                        'type'              => 'confirm',
+                        'text' => 'Are you sure?',
+                        'title'             => 'Current Weather…',
+                        'text'              => '9/29 Weather…',
+                        'actions'           => array( array('type' => 'message', 'label' => 'OK','text'  => 'Yes,Please'),
+                             array('type' => 'message', 'label' => 'Cancel', 'text'   => 'No thank you')
+                             ) 
+                        )
+                    )
+
+                        
+          }
+
 //           if($text == 'test'){
 
           //     $text =  array(
