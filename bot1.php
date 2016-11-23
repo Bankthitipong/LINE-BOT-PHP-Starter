@@ -1,7 +1,7 @@
 <?php
-$access_token = '6t9nTGUM4MSBtfVGcj3hTogXFEr7/Uc1ZrSnJJpuzHsegwHbA0Ja0hbePr2xBz86R54nNKFd/EWYtYxwHrhJsBSe6TlG88XT7fHfhRCn57F1Rj+XwNVhq5jYmqcIflZjqTU6+jKwn4GhZZ/CNIRwwQdB04t89/1O/w1cDnyilFU=';
+$access_token = '6t9nTGUM4MSBtfVGcj3hTogXFEr7/Uc1ZrSnJJpuzHsegwHbA0Ja0hbePr2xBz86R54nNKFd/EWYtYxwHrhJsBSe6TlG88XT7fHfhRCn57F1Rj+XwNVhq5jYmqcIflZjqTU6+jKwn4GhZZ/CNIRwwQdB04t89/1O/w1cDnyilFU=ISSUE';
 
-/// Get POST body content
+// Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
@@ -85,6 +85,27 @@ if (!is_null($events['events'])) {
             // Get replyToken
             $replyToken = $event['replyToken'];
 
+                   
+          //           if($text == 'test'){
+
+          //     $text =  array(
+          //           'type'     => 'template',
+          //           'altText'  => 'this is an template',
+          //           'template' => array(
+          //               'type'              => 'buttons',
+          //               'thumbnailImageUrl' => 'http://example.com/image.jpg',
+          //               'title'             => 'Current Weather…',
+          //               'text'              => '9/29 Weather…',
+          //               'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
+          //                    array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
+
+          //               )],
+
+          //           ),
+          //       )
+          // }
+
+
             // Build message to reply back
             $messages = [
                 'type' => 'text',
@@ -92,7 +113,7 @@ if (!is_null($events['events'])) {
             ];
 
             // Make a POST Request to Messaging API to reply to sender
-            $url  = 'https://api.line.me/v2/bot1/message/reply';
+            $url  = 'https://api.line.me/v2/bot/message/reply';
             $data = [
                 'replyToken' => $replyToken,
                 'messages'   => [$messages],
