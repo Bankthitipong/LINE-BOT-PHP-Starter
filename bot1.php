@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
                     $result_text = 'No data';
 
                 }
-            } 
+            }
 
             // Get replyToken
             $replyToken = $event['replyToken'];
@@ -78,49 +78,45 @@ if (!is_null($events['events'])) {
 
         }
 
-
- if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
             // Get text sent
             $text = $event['message']['text'];
 
-             if($text == 'test'){
+            if ($text == 'test') {
 
-            array(
+                array(
                     'type'     => 'template',
                     'altText'  => 'this is an template',
                     'template' => array(
-                        'type'              => 'confirm',
-                        'text' => 'Are you sure?',
-                        'title'             => 'Current Weather…',
-                        'text'              => '9/29 Weather…',
-                        'actions'           => array( array('type' => 'message', 'label' => 'OK','text'  => 'Yes,Please');,
-                             array('type' => 'message', 'label' => 'Cancel', 'text'   => 'No thank you');
-                             ) ;
-                        );
-                    );
+                        'type'    => 'confirm',
+                        'text'    => 'Are you sure?',
+                        'actions' => array(
+                            array('type' => 'message', 'label' => 'OK', 'text' => 'Yes,Please'),
+                            array('type' => 'message', 'label' => 'Cancel', 'text' => 'No thank you'),
+                        ),
+                    ),
+                );
 
-                        
-          }
+            }
 
 //           if($text == 'test'){
 
-          //     $text =  array(
-          //           'type'     => 'template',
-          //           'altText'  => 'this is an template',
-          //           'template' => array(
-          //               'type'              => 'buttons',
-          //               'thumbnailImageUrl' => 'http://example.com/image.jpg',
-          //               'title'             => 'Current Weather…',
-          //               'text'              => '9/29 Weather…',
-          //               'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
-          //                    array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
+            //     $text =  array(
+            //           'type'     => 'template',
+            //           'altText'  => 'this is an template',
+            //           'template' => array(
+            //               'type'              => 'buttons',
+            //               'thumbnailImageUrl' => 'http://example.com/image.jpg',
+            //               'title'             => 'Current Weather…',
+            //               'text'              => '9/29 Weather…',
+            //               'actions'           => [ array('type' => 'message', 'label' => 'How about… ','text'  => 'How about… '),
+            //                    array('type' => 'uri', 'label' => 'OpenBrowser', 'uri'   => 'https: //line.me',
 
-          //               )],
+            //               )],
 
-          //           ),
-          //       )
-          // }
-
+            //           ),
+            //       )
+            // }
 
             // Get replyToken
             $replyToken = $event['replyToken'];
