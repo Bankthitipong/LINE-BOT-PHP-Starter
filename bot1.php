@@ -84,7 +84,7 @@ if (!is_null($events['events'])) {
 
             if ($text == 'test') {
 
-                array(
+               $text = array(
                     'type'     => 'template',
                     'altText'  => 'this is an template',
                     'template' => array(
