@@ -92,7 +92,7 @@ if (!is_null($events['events'])) {
                         'text'    => 'Are you sure?',
                         'actions' => array(
                             array('type' => 'message', 'label' => 'OK', 'text' => 'Yes,Please'),
-                            array('type' => 'message', 'label' => 'Cancel', 'text' => 'No thank you'),
+                            array('type' => 'message', 'label' => 'Cancel', 'text' => 'No thank you')
                         )
                     )
                 );
